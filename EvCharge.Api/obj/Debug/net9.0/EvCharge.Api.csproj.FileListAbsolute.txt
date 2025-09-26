@@ -39,3 +39,4 @@ D:\4th Year Reserch Project\EAD project\EvCharge.Api\bin\Debug\net9.0\ZstdSharp.
 D:\4th Year Reserch Project\EAD project\EvCharge.Api\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\4th Year Reserch Project\EAD project\EvCharge.Api\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\4th Year Reserch Project\EAD project\EvCharge.Api\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\4th Year Reserch Project\EAD project\EvCharge.Api\obj\Debug\net9.0\EvCharge.Api.sourcelink.json

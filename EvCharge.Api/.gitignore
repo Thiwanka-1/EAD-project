@@ -1,0 +1,8 @@
+bin/
+obj/
+*.user
+*.swp
+*.suo
+*.vscode/
+*.DS_Store
+secrets.json
