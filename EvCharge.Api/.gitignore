@@ -34,9 +34,6 @@ App_Data/
 App_Start/
 Generated_Code/
 
-## Configuration
-appsettings.Development.json
-appsettings.Local.json
 
 ## Publish output
 publish/
