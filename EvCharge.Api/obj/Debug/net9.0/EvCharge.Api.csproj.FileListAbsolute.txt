@@ -40,3 +40,11 @@ D:\4th Year Reserch Project\EAD project\EvCharge.Api\bin\Debug\net9.0\Swashbuckl
 D:\4th Year Reserch Project\EAD project\EvCharge.Api\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\4th Year Reserch Project\EAD project\EvCharge.Api\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 D:\4th Year Reserch Project\EAD project\EvCharge.Api\obj\Debug\net9.0\EvCharge.Api.sourcelink.json
+D:\4th Year Reserch Project\EAD project\EvCharge.Api\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\4th Year Reserch Project\EAD project\EvCharge.Api\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+D:\4th Year Reserch Project\EAD project\EvCharge.Api\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\4th Year Reserch Project\EAD project\EvCharge.Api\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+D:\4th Year Reserch Project\EAD project\EvCharge.Api\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+D:\4th Year Reserch Project\EAD project\EvCharge.Api\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\4th Year Reserch Project\EAD project\EvCharge.Api\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+D:\4th Year Reserch Project\EAD project\EvCharge.Api\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll

@@ -5,9 +5,9 @@ namespace EvCharge.Api.Domain
 {
     public class EvOwner
     {
-        [BsonId] // primary key
+        [BsonId]
         [BsonRepresentation(BsonType.String)]
-        public string NIC { get; set; } = string.Empty; // NIC as primary key
+        public string NIC { get; set; } = string.Empty; // Primary key in DB
 
         [BsonElement("firstName")]
         public string FirstName { get; set; } = string.Empty;
@@ -16,12 +16,15 @@ namespace EvCharge.Api.Domain
         public string LastName { get; set; } = string.Empty;
 
         [BsonElement("email")]
-        public string Email { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty; // used for login
 
         [BsonElement("phone")]
         public string Phone { get; set; } = string.Empty;
 
         [BsonElement("isActive")]
-        public bool IsActive { get; set; } = true; // default active
+        public bool IsActive { get; set; } = true;
+
+        [BsonElement("passwordHash")]
+        public string? PasswordHash { get; set; }
     }
 }
