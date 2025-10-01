@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\4th Year Reserch Project\\EAD project\\EvCharge.Api\\EvCharge.Api.csproj": {}
+    "D:\\4th Year Reserch Project\\EAD project\\EVCharge.Api\\EvCharge.Api.csproj": {}
   },
   "projects": {
-    "D:\\4th Year Reserch Project\\EAD project\\EvCharge.Api\\EvCharge.Api.csproj": {
+    "D:\\4th Year Reserch Project\\EAD project\\EVCharge.Api\\EvCharge.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\4th Year Reserch Project\\EAD project\\EvCharge.Api\\EvCharge.Api.csproj",
+        "projectUniqueName": "D:\\4th Year Reserch Project\\EAD project\\EVCharge.Api\\EvCharge.Api.csproj",
         "projectName": "EvCharge.Api",
-        "projectPath": "D:\\4th Year Reserch Project\\EAD project\\EvCharge.Api\\EvCharge.Api.csproj",
+        "projectPath": "D:\\4th Year Reserch Project\\EAD project\\EVCharge.Api\\EvCharge.Api.csproj",
         "packagesPath": "C:\\Users\\Thiwanka\\.nuget\\packages\\",
-        "outputPath": "D:\\4th Year Reserch Project\\EAD project\\EvCharge.Api\\obj\\",
+        "outputPath": "D:\\4th Year Reserch Project\\EAD project\\EVCharge.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Thiwanka\\AppData\\Roaming\\NuGet\\NuGet.Config"
