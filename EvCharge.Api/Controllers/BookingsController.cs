@@ -266,5 +266,39 @@ namespace EvCharge.Api.Controllers
             await _repo.UpdateAsync(b);
             return Ok(new { message = "Charging session completed." });
         }
+
+
+        [HttpGet("station/{stationId}/availability")]
+        [Authorize(Roles = "Owner,Backoffice,Operator")]
+        public async Task<ActionResult<object>> GetAvailability(string stationId, [FromQuery] DateTime date)
+        {
+            var station = await _stationRepo.GetByIdAsync(stationId);
+            if (station == null || !station.IsActive) return NotFound("Station not available.");
+
+            // Get all active bookings for the date
+            var startOfDay = date.Date;
+            var endOfDay = startOfDay.AddDays(1);
+
+            var bookings = (await _repo.GetByStationAsync(stationId))
+                .Where(b => BookingStatus.ActiveStatuses.Contains(b.Status)
+                        && b.StartTimeUtc < endOfDay && b.EndTimeUtc > startOfDay)
+                .ToList();
+
+            // Build 30-minute slots for the day
+            var availability = new List<object>();
+            for (var t = startOfDay; t < endOfDay; t = t.AddMinutes(30))
+            {
+                var slotStart = t;
+                var slotEnd = t.AddMinutes(30);
+
+                var overlapping = bookings.Count(b => b.StartTimeUtc < slotEnd && b.EndTimeUtc > slotStart);
+                var freeSlots = Math.Max(0, station.AvailableSlots - overlapping);
+
+                availability.Add(new { time = slotStart.ToString("HH:mm"), availableSlots = freeSlots });
+            }
+
+            return Ok(new { stationId, date = startOfDay.ToString("yyyy-MM-dd"), availability });
+        }
+
     }
 }
