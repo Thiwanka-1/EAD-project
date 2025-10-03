@@ -48,3 +48,9 @@ D:\4th Year Reserch Project\EAD project\EvCharge.Api\bin\Debug\net9.0\Microsoft.
 D:\4th Year Reserch Project\EAD project\EvCharge.Api\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 D:\4th Year Reserch Project\EAD project\EvCharge.Api\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
 D:\4th Year Reserch Project\EAD project\EvCharge.Api\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+D:\4th Year Reserch Project\EAD project\EVCharge.Api\bin\Debug\net9.0\publish\web.config
+D:\4th Year Reserch Project\EAD project\EVCharge.Api\bin\Debug\net9.0\publish\appsettings.Development.json
+D:\4th Year Reserch Project\EAD project\EVCharge.Api\bin\Debug\net9.0\publish\appsettings.json
+D:\4th Year Reserch Project\EAD project\EVCharge.Api\bin\Debug\net9.0\publish\EvCharge.Api.deps.json
+D:\4th Year Reserch Project\EAD project\EVCharge.Api\bin\Debug\net9.0\publish\EvCharge.Api.runtimeconfig.json
+D:\4th Year Reserch Project\EAD project\EVCharge.Api\bin\Debug\net9.0\publish\EvCharge.Api.staticwebassets.endpoints.json
