@@ -74,6 +74,7 @@ builder.Services.AddCors(options =>
                 "http://localhost:5173",  // React/Vite dev
                 "http://localhost:3000",  // React CRA dev
                 "https://localhost:5173", // secure localhost
+                "https://ead-web-client.vercel.app", // deployed web client
                 "http://10.0.2.2"         // Android emulator
             )
             .AllowAnyHeader()
