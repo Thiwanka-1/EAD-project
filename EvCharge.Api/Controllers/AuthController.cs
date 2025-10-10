@@ -1,3 +1,10 @@
+// =============================================
+// File: AuthController.cs
+// Description: Handles all auth-related logic for the EV Charging app.
+// Author: Gamithu / IT22295224
+// Date: 10/10/2025
+// =============================================
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using EvCharge.Api.Services;

@@ -1,3 +1,10 @@
+// =============================================
+// File: StationController.cs
+// Description: Handles all  charging station-related logic for the EV Charging app.
+// Author: Gamithu / IT22295224
+// Date: 10/10/2025
+// =============================================
+
 using EvCharge.Api.Domain;
 using EvCharge.Api.Repositories;
 using Microsoft.AspNetCore.Authorization;

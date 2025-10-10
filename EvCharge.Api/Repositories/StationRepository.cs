@@ -1,3 +1,10 @@
+// =============================================
+// File: StationRepository.cs
+// Description: Provides data access methods for charging stations, including add, update, and fetch operations.
+// Author: Gamithu / IT22295224
+// Date: 10/10/2025
+// =============================================
+
 using EvCharge.Api.Domain;
 using MongoDB.Driver;
 

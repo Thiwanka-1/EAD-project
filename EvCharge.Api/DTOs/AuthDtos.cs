@@ -1,3 +1,10 @@
+// =============================================
+// File: AuthDtos.cs
+// Description: DTO class for transferring user data between client and server.
+// Author: Gamithu / IT22295224
+// Date: 10/10/2025
+// =============================================
+
 namespace EvCharge.Api.DTOs
 {
     // For system users (Backoffice/Operator)

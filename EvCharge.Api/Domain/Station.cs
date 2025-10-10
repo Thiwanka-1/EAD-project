@@ -1,3 +1,11 @@
+// =============================================
+// File: Station.cs
+// Description: Represents the charging station data model for the EV Charging app.
+//              Defines entity structure used in data storage and transfer.
+// Author: Gamithu / IT22295224
+// Date: 10/10/2025
+// =============================================
+
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 

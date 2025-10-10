@@ -1,3 +1,11 @@
+// =============================================
+// File: SecurityService.cs
+// Description: Provides security-related functions for the EV Charging app,
+//              including password hashing and JWT token generation for authentication.
+// Author: Gamithu / IT22295224
+// Date: 10/10/2025
+// =============================================
+
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
