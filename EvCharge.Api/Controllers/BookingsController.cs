@@ -269,36 +269,79 @@ namespace EvCharge.Api.Controllers
 
 
         [HttpGet("station/{stationId}/availability")]
-        [Authorize(Roles = "Owner,Backoffice,Operator")]
-        public async Task<ActionResult<object>> GetAvailability(string stationId, [FromQuery] DateTime date)
+[Authorize(Roles = "Owner,Backoffice,Operator")]
+public async Task<ActionResult<object>> GetAvailability(
+    string stationId,
+    [FromQuery] string dateLocal,      // e.g. "2025-10-13"
+    [FromQuery] int tzOffsetMinutes    // e.g. Colombo = +330
+)
+{
+    var station = await _stationRepo.GetByIdAsync(stationId);
+    if (station == null || !station.IsActive)
+        return NotFound("Station not available.");
+
+    // 1) Parse local calendar day string robustly
+    //    We accept "yyyy-MM-dd", "yyyy.MM.dd", "yyyy/MM/dd".
+    if (!TryParseYmd(dateLocal, out var ymd))
+        return BadRequest("date must be yyyy-MM-dd (or yyyy.MM.dd / yyyy/MM/dd)");
+
+    // local day start/end (no timezone yet)
+    var localStart = new DateTime(ymd.Year, ymd.Month, ymd.Day, 0, 0, 0, DateTimeKind.Unspecified);
+    var localEnd   = localStart.AddDays(1);
+
+    // 2) Convert the local window to UTC using client offset
+    //    local = UTC + offset  =>  UTC = local - offset
+    var startUtc = localStart - TimeSpan.FromMinutes(tzOffsetMinutes);
+    var endUtc   = localEnd   - TimeSpan.FromMinutes(tzOffsetMinutes);
+
+    // 3) Pull active bookings that overlap this UTC window
+    var bookings = (await _repo.GetByStationAsync(stationId))
+        .Where(b =>
+            BookingStatus.ActiveStatuses.Contains(b.Status) &&
+            b.StartTimeUtc < endUtc &&
+            b.EndTimeUtc   > startUtc
+        )
+        .ToList();
+
+    // 4) Build 30-min LOCAL slots across the requested day; compare in UTC
+    var availability = new List<object>();
+    for (var tLocal = localStart; tLocal < localEnd; tLocal = tLocal.AddMinutes(30))
+    {
+        var slotStartUtc = tLocal - TimeSpan.FromMinutes(tzOffsetMinutes);
+        var slotEndUtc   = slotStartUtc.AddMinutes(30);
+
+        // Overlap rule
+        var overlapping = bookings.Count(b => b.StartTimeUtc < slotEndUtc && b.EndTimeUtc > slotStartUtc);
+        var freeSlots   = Math.Max(0, station.AvailableSlots - overlapping);
+
+        availability.Add(new
         {
-            var station = await _stationRepo.GetByIdAsync(stationId);
-            if (station == null || !station.IsActive) return NotFound("Station not available.");
+            time = tLocal.ToString("HH:mm"), // label in LOCAL time
+            availableSlots = freeSlots
+        });
+    }
 
-            // Get all active bookings for the date
-            var startOfDay = date.Date;
-            var endOfDay = startOfDay.AddDays(1);
+    return Ok(new
+    {
+        stationId,
+        date = $"{ymd:yyyy-MM-dd}",
+        tzOffsetMinutes,
+        availability
+    });
+}
 
-            var bookings = (await _repo.GetByStationAsync(stationId))
-                .Where(b => BookingStatus.ActiveStatuses.Contains(b.Status)
-                        && b.StartTimeUtc < endOfDay && b.EndTimeUtc > startOfDay)
-                .ToList();
+// helper at bottom of controller
+private static bool TryParseYmd(string s, out DateOnly ymd)
+{
+    var fmts = new[] { "yyyy-MM-dd", "yyyy.MM.dd", "yyyy/MM/dd" };
+    foreach (var fmt in fmts)
+        if (DateOnly.TryParseExact(s, fmt, out ymd))
+            return true;
+    ymd = default;
+    return false;
+}
 
-            // Build 30-minute slots for the day
-            var availability = new List<object>();
-            for (var t = startOfDay; t < endOfDay; t = t.AddMinutes(30))
-            {
-                var slotStart = t;
-                var slotEnd = t.AddMinutes(30);
 
-                var overlapping = bookings.Count(b => b.StartTimeUtc < slotEnd && b.EndTimeUtc > slotStart);
-                var freeSlots = Math.Max(0, station.AvailableSlots - overlapping);
-
-                availability.Add(new { time = slotStart.ToString("HH:mm"), availableSlots = freeSlots });
-            }
-
-            return Ok(new { stationId, date = startOfDay.ToString("yyyy-MM-dd"), availability });
-        }
 
     }
 }
