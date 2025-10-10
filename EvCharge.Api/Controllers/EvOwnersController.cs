@@ -1,7 +1,6 @@
 // =============================================
 // File: EvOwnersController.cs
 // Description: Handles all EV owner-related logic for the EV Charging app.
-// Author: Gamithu / IT22295224
 // Date: 10/10/2025
 // =============================================
 

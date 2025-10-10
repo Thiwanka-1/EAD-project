@@ -1,7 +1,6 @@
 // =============================================
 // File: BookingDtos.cs
 // Description: DTO class for transferring booking data between client and server.
-// Author: Gamithu / IT22295224
 // Date: 10/10/2025
 // =============================================
 
