@@ -2,7 +2,7 @@
 // File: User.cs
 // Description: Represents the user data model for the EV Charging app.
 //              Defines entity structure used in data storage and transfer.
-// Date: 10/10/2025
+w// Date: 10/10/2025
 // =============================================
 
 using MongoDB.Bson;
