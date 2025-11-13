@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EvCharge.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b046b30ebeea7c8de607adba25de4653d43a5cdb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+62b16a816d068f0b38522d07788e50b6d23ed36d")]
 [assembly: System.Reflection.AssemblyProductAttribute("EvCharge.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EvCharge.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
